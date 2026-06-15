@@ -1,23 +1,10 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-import PageTransition from "@/components/PageTransition";
+import type { Metadata } from "next";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        <PageTransition>{children}</PageTransition>
-      </body>
-    </html>
-  );
-}
-export const metadata = {
+export const metadata: Metadata = {
   title: "MediCare Plus | Modern Healthcare Platform",
   description:
     "Book appointments with top doctors and get online consultations instantly.",
@@ -27,3 +14,21 @@ export const metadata = {
     type: "website",
   },
 };
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className="scroll-smooth">
+      <head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Sora:wght@700;800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className={inter.className}>{children}</body>
+    </html>
+  );
+}
