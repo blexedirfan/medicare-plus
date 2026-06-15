@@ -6,7 +6,7 @@ import { ArrowRight, CalendarCheck } from "lucide-react";
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
   animate: { opacity: 1, y: 0 },
-  transition: { delay, duration: 0.6, ease: "easeOut" },
+  transition: { delay, duration: 0.6, ease: "easeOut" as const },
 });
 
 export default function Hero() {
@@ -47,10 +47,7 @@ export default function Hero() {
             manage your entire healthcare journey — all in one place.
           </motion.p>
 
-          <motion.div
-            {...fadeUp(0.3)}
-            className="flex flex-wrap gap-4 mt-8"
-          >
+          <motion.div {...fadeUp(0.3)} className="flex flex-wrap gap-4 mt-8">
             <a href="#contact" className="btn-primary">
               <CalendarCheck size={18} /> Book Appointment
             </a>
@@ -70,7 +67,10 @@ export default function Hero() {
               { val: "50K+", label: "Patients Served", color: "text-blue-600" },
             ].map((s) => (
               <div key={s.label}>
-                <h3 className={`text-2xl font-extrabold ${s.color}`} style={{ fontFamily: "Sora, sans-serif" }}>
+                <h3
+                  className={`text-2xl font-extrabold ${s.color}`}
+                  style={{ fontFamily: "Sora, sans-serif" }}
+                >
                   {s.val}
                 </h3>
                 <p className="text-xs text-slate-400 mt-0.5">{s.label}</p>
@@ -83,7 +83,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.7, ease: "easeOut" as const }}
           className="relative hidden md:block"
         >
           <img
@@ -92,10 +92,9 @@ export default function Hero() {
             className="rounded-3xl shadow-2xl w-full h-[520px] object-cover"
           />
 
-          {/* Floating card top-left */}
           <motion.div
             animate={{ y: [0, -10, 0] }}
-            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" as const }}
             className="absolute top-6 -left-6 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3"
           >
             <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse" />
@@ -105,10 +104,9 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Floating card bottom-right */}
           <motion.div
             animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+            transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" as const }}
             className="absolute bottom-6 -right-6 bg-white rounded-2xl shadow-xl px-4 py-3 flex items-center gap-3"
           >
             <span className="w-2.5 h-2.5 rounded-full bg-blue-500" />
